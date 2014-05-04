@@ -6,6 +6,7 @@ site: site.hs
 	ghc --make -threaded $<
 
 publish:
+	$(MAKE) build
 	git commit -a
 	git push origin
 	$(MAKE) -C _site

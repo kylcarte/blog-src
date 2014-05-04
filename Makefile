@@ -6,5 +6,9 @@ build: site
 site: site.hs
 	ghc --make -threaded $<
 
-.PHONY: build
+publish:
+	git commit -a
+	git push origin
+
+.PHONY: build publish
 

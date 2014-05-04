@@ -1,8 +1,7 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
+import           Data.Monoid ((<>))
 import           Hakyll
-
 
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -22,50 +21,54 @@ main = hakyll $ do
     match (fromList ["about.markdown", "contact.markdown"]) $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= loadAndApplyTemplate defaultTemplate defaultContext
             >>= relativizeUrls
 
-    match "posts/*.markdown" $ do
+    match postPat $ do
         route $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= loadAndApplyTemplate defaultTemplate postCtx
             >>= relativizeUrls
 
     create ["archive.html"] $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
+            posts <- recentFirst =<< loadAll postPat
             let archiveCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Archives"            `mappend`
-                    defaultContext
+                     listField "posts" postCtx (return posts)
+                  <> constField "title" "Archives"
+                  <> defaultContext
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
-                >>= loadAndApplyTemplate "templates/default.html" archiveCtx
+                >>= loadAndApplyTemplate defaultTemplate archiveCtx
                 >>= relativizeUrls
 
 
     match "index.html" $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
+            posts <- recentFirst =<< loadAll postPat
             let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Home"                `mappend`
-                    defaultContext
+                     listField "posts" postCtx (return posts)
+                  <> constField "title" "Home"
+                  <> defaultContext
 
             getResourceBody
                 >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
+                >>= loadAndApplyTemplate defaultTemplate indexCtx
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateCompiler
-
+  where
+  postPat :: Pattern
+  postPat = "posts/*/*.markdown"
+  defaultTemplate :: Identifier
+  defaultTemplate = "templates/test.html"
 
 --------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
-    defaultContext
+     dateField "date" "%B %e, %Y"
+  <> defaultContext

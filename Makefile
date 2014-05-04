@@ -11,5 +11,8 @@ publish:
 	git push origin
 	$(MAKE) -C _site
 
-.PHONY: build publish
+test: build
+	./site watch
+
+.PHONY: build publish test
 

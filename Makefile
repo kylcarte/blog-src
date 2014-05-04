@@ -1,7 +1,6 @@
 
 build: site
 	./site build
-	$(MAKE) -C _site
 
 site: site.hs
 	ghc --make -threaded $<
@@ -9,6 +8,7 @@ site: site.hs
 publish:
 	git commit -a
 	git push origin
+	$(MAKE) -C _site
 
 .PHONY: build publish
 

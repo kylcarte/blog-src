@@ -1,0 +1,13 @@
+# Site settings
+title: Vague to a degree
+email: kylcarte@indiana.edu
+description: >
+  This site serves as a place for me to gather and share thoughts and
+  material related to my work and craft.
+baseurl: ""
+url: "http://kylcarte.github.io"
+# twitter_username: jekyllrb
+github_username:  kylcarte
+
+# Build settings
+markdown: kramdown

@@ -1,13 +1,35 @@
-# Site settings
-title: Vague to a degree
-email: kylcarte@indiana.edu
-description: >
-  This site serves as a place for me to gather and share thoughts and
-  material related to my work and craft.
-baseurl: ""
-url: "http://kylcarte.github.io"
-# twitter_username: jekyllrb
-github_username:  kylcarte
+# Permalinks
+permalink:           pretty
 
-# Build settings
+# Setup
+title:               Vague to a degree
+tagline:             Kyle Carter
+url:                 http://kylcarte.github.io
+paginate:            1
+baseurl:             ""
+
+# Assets
+#
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir:          _sass
+  style:            :compressed
+
+# About/contact
+author:
+  name:              Kyle Carter
+  url:               https://github.com/kylcarte
+  email:             kylcarte@indiana.edu
+  phone:             +1 (812) 391-1256
+
+# Custom vars
+version:             2.0.0
+github:
+  repo:              https://github.com/kylcarte/kylcarte.github.io
+
+# Gems
+gems:
+  - jekyll-paginate
+  - jekyll-gist
+
 markdown: kramdown

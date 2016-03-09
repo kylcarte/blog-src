@@ -1,15 +1,29 @@
 ---
 layout: page
 title: About
-permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+I am a first year doctoral student in the School of Informatics and Computing at [Indiana University](https://cs.indiana.edu) and occasionally an artist
+in paper, wood, metal, leather, and stone.  
+\\
+My research is primarily into the application of formal logic and type theories to programming languages.  
+\\
+I find joy in the elegance of mathematics and art alike. In fact, I find work in both to involve the same creative, constructive processes.  
+{:.message}
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
+Please feel free to contact me in any of the following ways!
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+###### in person:
+
+    Lindley Hall, Room 328
+    Indiana University
+    Bloomington, IN 47405
+
+###### by email:
+
+   <kylcarte@indiana.edu>
+
+###### on github:
+
+  <https://github.com/kylcarte>
+

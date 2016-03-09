@@ -1,16 +1,23 @@
 ---
-title: Home
+layout: default
 ---
 
-<h2>Welcome</h2>
+<div class="home">
 
-<img src="/images/haskell-logo.png" style="float: right; margin: 10px;" />
+  <h1 class="page-heading">Posts</h1>
 
-<p>Welcome to my blog!</p>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-<p>I've reproduced a list of recent posts here for your reading pleasure:</p>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
 
-<h2>Posts</h2>
-$partial("templates/post-list.html")$
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-<p>…or you can find more in the <a href="/archive.html">archives</a>.
+</div>

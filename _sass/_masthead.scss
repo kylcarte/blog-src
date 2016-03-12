@@ -6,6 +6,7 @@
   padding-top:    1rem;
   padding-bottom: 1rem;
   margin-bottom: 3rem;
+  background-color: $masthead-bg;
 }
 
 .masthead-title {
@@ -15,6 +16,9 @@
 
   a {
     color: inherit;
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   small {

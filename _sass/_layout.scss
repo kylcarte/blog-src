@@ -10,6 +10,10 @@
   margin-right: auto;
 }
 
+.container .content {
+  background-color: $content-bg;
+}
+
 footer {
   margin-bottom: 2rem;
 }
